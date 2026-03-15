@@ -1,9 +1,9 @@
 import { ChevronDown, ShoppingCart } from 'lucide-react';
 import { useNavigate } from "react-router-dom";
-import { useAuth } from '@/context/AuthContext';
+import { useAuth } from '@/context/user/AuthContext';
 import { motion } from "framer-motion";
 import { Typewriter } from 'react-simple-typewriter'
-import { useModal } from '@/context/ModalContext';
+import { useModal } from '@/context/user/ModalContext';
 import { allProducts } from '@/utils/SampleData';
 import { fadeUp, slideLeft, slideRight  } from "@/utils/helper";
 import Slider from "react-slick";

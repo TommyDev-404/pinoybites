@@ -11,7 +11,7 @@ import {
 import toast from "react-hot-toast";
 import type { Page, MenuItemsType } from "@/types/admin";
 import { NavLink, useNavigate } from "react-router-dom";
-import { usePageHeader } from "@/context/AdminHeaderContext";
+import { usePageHeader } from "@/context/admin/AdminHeaderContext";
 
 interface SidebarProps{
       menuItems: MenuItemsType[];

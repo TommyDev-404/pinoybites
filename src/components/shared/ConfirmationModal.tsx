@@ -1,7 +1,7 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { LogOut, Trash2 } from "lucide-react";
-import { useModal } from "@/context/ModalContext";
+import { useModal } from "@/context/user/ModalContext";
 
 interface LogoutModalProps {
       message: string;

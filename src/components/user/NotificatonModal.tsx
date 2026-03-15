@@ -6,7 +6,7 @@ import {
       DialogHeader,
       DialogTitle,
 } from "@/components/ui/dialog"; // shadcn dialog
-import type { Notification } from "@/types/admin";
+import { useUserContext } from "@/context/user/UserContext";
 
 interface NotificationsModalProps {
       open: boolean;
@@ -14,13 +14,12 @@ interface NotificationsModalProps {
 }
 
 export default function NotificationsModal({ open, onClose }: NotificationsModalProps) {
+      const { notifications } = useUserContext();
+
       const typeColors: Record<string, string> = {
             success: "bg-emerald-50 border-emerald-200 text-emerald-700",
             error: "bg-red-50 border-red-200 text-red-700",
       };
-
-      const savedNotification = localStorage.getItem('notifications');
-      const notifications: Notification[] = savedNotification ? JSON.parse(savedNotification) : [];
 
       return (
             <Dialog open={open} onOpenChange={onClose}>

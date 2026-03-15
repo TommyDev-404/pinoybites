@@ -48,9 +48,3 @@ export interface Customer {
       orders: number;
       totalSpent: number;
 }
-
-export type Notification = {
-      message: string;
-      date: string;
-      type: 'success' | 'error';
-};

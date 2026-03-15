@@ -1,19 +1,19 @@
 import { CartItem } from '@/components/user/cart/CartItem';
 import { CartSummary } from '@/components/user/cart/CartSummary';
-import { useModal } from '@/context/ModalContext';
-import { useCart } from '@/context/CartContext';
+import { useModal } from '@/context/user/ModalContext';
 import { motion } from 'framer-motion';
 import TrustIndicator from '@/components/shared/TrustIndicators';
-import { useAuth } from '@/context/AuthContext';
+import { useAuth } from '@/context/user/AuthContext';
 import EmptyCart from '@/components/user/cart/EmptyCart';
 import PageHeader from '@/components/user/cart/PageHeader';
+import { useUserContext } from '@/context/user/UserContext';
 
 const DELIVERY_FEE = 4.99;
 
 export default function CartPage() {
       const { user } = useAuth();
       const { setModalOpen } = useModal();
-      const { cartItems, updateQuantity, removeFromCart } = useCart();
+      const { cartItems, updateQuantity, removeFromCart } = useUserContext();
 
       const handleUpdateQuantity = (id: number, quantity: number) => {
             updateQuantity(id, quantity);

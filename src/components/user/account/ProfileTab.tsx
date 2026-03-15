@@ -1,11 +1,11 @@
 import { useRef, useState } from "react";
 import { Camera, Edit2 } from "lucide-react";
-import { useProfile } from "@/context/ProfileImageContext";
+import { useUserContext } from "@/context/user/UserContext";
 
 
 export default function ProfileTab({ user }: { user: any }) {
 	const fileInputRef = useRef<HTMLInputElement | null>(null);
-	const { profileImage, handleSetProfileImage } = useProfile();
+	const { profileImage, handleSetProfileImage } = useUserContext();
 
 	const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 	const file = e.target.files?.[0];

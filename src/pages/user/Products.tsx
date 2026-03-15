@@ -4,7 +4,7 @@ import ProductCard from '@/components/user/products/ProductCard';
 import ProductFilters from '@/components/user/products/FilterCard';
 import { allProducts, categories  } from '@/utils/SampleData';
 import { motion } from 'framer-motion';
-import { useAuth } from '@/context/AuthContext';
+import { useAuth } from '@/context/user/AuthContext';
 import EmptyProduct from '@/components/user/products/EmptyProduct';
 import type { SortOption } from '@/types/user';
 import SearchBar from '@/components/user/products/SearchBar';

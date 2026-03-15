@@ -1,7 +1,7 @@
 import { Star, ShoppingCart, ChevronLeft, ChevronRight } from 'lucide-react';
 import { ImageWithFallback } from '../../../assets/figma/ImageWithFallback';
-import { useModal } from '@/context/ModalContext';
-import { useAuth } from '@/context/AuthContext';
+import { useModal } from '@/context/user/ModalContext';
+import { useAuth } from '@/context/user/AuthContext';
 import type { CartItem } from '@/types/user';
 import { popularProducts } from '@/utils/SampleData';
 import Slider from "react-slick";

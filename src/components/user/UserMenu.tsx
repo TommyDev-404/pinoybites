@@ -9,14 +9,14 @@ import {
 import { Switch } from "@/components/ui/switch"; // assuming you have a switch component
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { useModal } from '@/context/ModalContext';
-import { useAuth } from '@/context/AuthContext';
-import { useProfile } from '@/context/ProfileImageContext';
+import { useModal } from '@/context/user/ModalContext';
+import { useAuth } from '@/context/user/AuthContext';
+import { useUserContext } from '@/context/user/UserContext';
 
 
 export default function UserMenu() {
       const { user, logout } = useAuth();
-      const { profileImage } = useProfile();
+      const { profileImage } = useUserContext();
       const { setModalOpen } = useModal();
       const [darkMode, setDarkMode] = useState(false);
 

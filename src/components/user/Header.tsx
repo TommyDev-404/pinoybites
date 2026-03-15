@@ -2,16 +2,16 @@ import { useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { Menu, X, ShoppingCartIcon, ShoppingBagIcon, Phone, Home, Package, UserPlus } from "lucide-react";
 import { useIsMobile } from "@/hooks/useIsMobile";
-import { useAuth } from "@/context/AuthContext";
-import { useCart } from "@/context/CartContext";
+import { useAuth } from "@/context/user/AuthContext";
 import Logo from "@/components/user/Logo";
 import UserMenu from "./UserMenu";
+import { useUserContext } from "@/context/user/UserContext";
 
 
 export default function Header() {
 	const isMobile = useIsMobile();
 	const { user } = useAuth();
-	const { cartCount } = useCart();
+	const { cartCount, orderCount } = useUserContext();
 	
 	const location = useLocation();
 
@@ -172,6 +172,12 @@ export default function Header() {
 										<Package className="w-4" />
 									<span className="text-sm">My Orders</span>
 									</div>
+									
+									{orderCount !== 0 && (
+										<span className="absolute -top-2 -right-3 bg-red-500 text-white text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full">
+											{orderCount}
+										</span>
+									)}
 
 									<span className="absolute left-1/2 bottom-0 h-0.5 w-0 -translate-x-1/2 bg-amber-500 transition-all duration-300 group-hover:w-full"></span>
 								</NavLink>

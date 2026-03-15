@@ -12,7 +12,7 @@ import {
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { useNavigate } from "react-router-dom";
 import AuthLayout from "@/layout/AuthLayout";
-import { useAuth } from "@/context/AuthContext";
+import { useAuth } from "@/context/user/AuthContext";
 
 interface EmailForm {
       email: string;

@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom";
 import { Suspense } from "react";
-import { useModal } from "@/context/ModalContext";
+import { useModal } from "@/context/user/ModalContext";
 
 import LoginForm from "@/components/user/authentication/LoginModal";
 import AddToCartModal from "@/components/user/products/AddToCartModal";

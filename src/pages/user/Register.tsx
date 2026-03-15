@@ -4,7 +4,7 @@ import { Eye, EyeOff, Loader2Icon } from "lucide-react";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import PlaySound from "@/utils/PlaySound";
-import { useAuth } from "@/context/AuthContext";
+import { useAuth } from "@/context/user/AuthContext";
 import { capitalizeWords } from "@/utils/helper";
 import google from '@/assets/google.png';
 import facebook from '@/assets/facebook.webp';

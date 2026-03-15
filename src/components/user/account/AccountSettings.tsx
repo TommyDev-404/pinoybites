@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { User, Lock, MapPin, Package, Bell } from "lucide-react";
-import { useAuth } from "@/context/AuthContext";
+import { useAuth } from "@/context/user/AuthContext";
 
 import ProfileTab from "@/components/user/account/ProfileTab";
 import SecurityTab from "@/components/user/account/SecurityTab";

@@ -32,8 +32,8 @@ import toast from "react-hot-toast"
 import { capitalizeWords  } from '@/utils/helper';
 import { useNavigate } from "react-router-dom"
 import PlaySound from "@/utils/PlaySound"
-import { useCart } from "@/context/CartContext";
-import type { Notification } from "@/types/admin"
+import type { Notification } from "@/types/user"
+import { useUserContext } from "@/context/user/UserContext"
 
 
 interface OrderFormData {
@@ -54,7 +54,7 @@ type Props = {
 }
 
 export default function PlaceOrderModal({ cartItems, open, onClose }: Props) {
-      const { clearCart } = useCart();
+      const { clearCart } = useUserContext();
       const navigate = useNavigate();
       const [isSubmitting, setIsSubmitting] = useState(false)
       const {
@@ -113,6 +113,7 @@ export default function PlaceOrderModal({ cartItems, open, onClose }: Props) {
             const notifications = stored ? JSON.parse(stored) as Notification[] : [];
 
             const newNotifications: Notification = {
+                  id: idNo,
                   message: `You order #ORDR-GWAPOKO${idNo} has been successfully placed.`,
                   date: new Date().toLocaleDateString('en-Us', { month: 'long', day: '2-digit', year: 'numeric'}),
                   type: 'success'

@@ -1,7 +1,7 @@
 import type { MenuItemsType } from "@/types/admin";
 import { Bell, Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { usePageHeader } from "@/context/AdminHeaderContext";
+import { usePageHeader } from "@/context/admin/AdminHeaderContext";
 
 interface HeaderProps {
       menuItems: MenuItemsType[];

@@ -34,16 +34,18 @@
       }
 }
 
-@keyframes wave {
-      0%, 60%, 100% { transform: translateY(0); }
-      30% { transform: translateY(-8px); }
+/* Thin scrollbar */
+::-webkit-scrollbar {
+      width: 3px;
 }
 
-.animate-wave {
-      animation: wave 0.5s infinite ease-in-out;
+/* Track */
+::-webkit-scrollbar-track {
+      background: transparent;
 }
 
-/* Staggered delays for sequential wave */
-.delay-0 { animation-delay: 0s; }
-.delay-200 { animation-delay: 0.1s; }
-.delay-400 { animation-delay: 0.2s; }
+/* Handle */
+::-webkit-scrollbar-thumb {
+      background: rgba(241, 154, 23, 0.753);
+      border-radius: 20px;
+}

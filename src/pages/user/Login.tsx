@@ -9,8 +9,8 @@ import {
 } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
 import AuthLayout from "@/layout/AuthLayout";
-import { useAuth } from "@/context/AuthContext";
-import { useModal } from "@/context/ModalContext";
+import { useAuth } from "@/context/user/AuthContext";
+import { useModal } from "@/context/user/ModalContext";
 import PlaySound from "@/utils/PlaySound";
 import toast from "react-hot-toast";
 import LoginForm from "@/components/user/authentication/LoginForm";

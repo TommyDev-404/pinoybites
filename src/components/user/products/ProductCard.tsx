@@ -1,8 +1,8 @@
 import { Star, Heart, ShoppingCart } from 'lucide-react';
 import { ImageWithFallback } from '@/assets/figma/ImageWithFallback';
-import { useModal } from '@/context/ModalContext';
+import { useModal } from '@/context/user/ModalContext';
 import type { CartItem as CartItemType, Product as ProductType  } from '@/types/user';
-import { useAuth } from '@/context/AuthContext';
+import { useAuth } from '@/context/user/AuthContext';
 
 
 interface ProductCardProps {

@@ -11,8 +11,8 @@ import type { CartItem as CartItemType  } from "@/types/user"
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { useModal } from "@/context/ModalContext"
-import { useCart } from "@/context/CartContext"
+import { useModal } from "@/context/user/ModalContext"
+import { useUserContext } from "@/context/user/UserContext"
 
 type Props = {
       product: CartItemType
@@ -21,7 +21,7 @@ type Props = {
 };
 
 export default function AddToCartModal({ product, open, onClose }: Props) {
-      const { addToCart } = useCart();
+      const { addToCart } = useUserContext();
       const { setModalOpen } = useModal();
       const [quantity, setQuantity] = useState(1)
 

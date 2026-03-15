@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { useAuth } from "@/context/AuthContext";
-import { useModal } from "@/context/ModalContext";
+import { useAuth } from "@/context/user/AuthContext";
+import { useModal } from "@/context/user/ModalContext";
 import type { SubmitHandler } from "react-hook-form";
 import {
       Dialog,

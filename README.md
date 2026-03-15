@@ -5,7 +5,7 @@ How to use?
 - run the command below to install the packages and dependencies:
 ```
 	git clone https://github.com/TommyDev-404/pinoybites.git
-	cd project
+	cd pinoybites
 	npm install
 ```
 
