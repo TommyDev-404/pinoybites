@@ -1,5 +1,5 @@
 import { createContext, useContext, useState  } from "react";
-import type { CartItem as CartItemType } from "@/types/user";
+import type { CartItem as CartItemType, OrderInfo, Product } from "@/types/user";
 
 type ModalOption = 
       'login' |
@@ -7,15 +7,18 @@ type ModalOption =
       'placeOrder' | 
       'loginLoading' |
       'logoutLoading' |
-      'notifications' |
+      'notifInfo' |
       'logoutConfirmation' |
       'removeConfirmation' |
+      'viewProductInfo' |
       null;
 
 type ModalData = {
       modalToOpen: ModalOption,
       productPayload?: CartItemType,
+      productInfo?: Product,
       placeOrderPayload?: CartItemType[],
+      orderInfo?:OrderInfo;
       message?: string;
       actionName?: string;
       modalType?: string;

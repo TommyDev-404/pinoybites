@@ -1,4 +1,4 @@
-import { Star, Heart, ShoppingCart } from 'lucide-react';
+import { Star, Heart, ShoppingCart, Info } from 'lucide-react';
 import { ImageWithFallback } from '@/assets/figma/ImageWithFallback';
 import { useModal } from '@/context/user/ModalContext';
 import type { CartItem as CartItemType, Product as ProductType  } from '@/types/user';
@@ -15,7 +15,7 @@ export default function ProductCard({ product, isFavorite, onToggleFavorite }: P
 	const { setModalOpen } = useModal();
 	const { user } = useAuth();
 
-	const handleAction = () => {
+	const handleAddToCart = () => {
 		const productSelected: CartItemType = {
 			id: product.id,
 			name: product.name,
@@ -33,6 +33,14 @@ export default function ProductCard({ product, isFavorite, onToggleFavorite }: P
 		: 
 			setModalOpen({ modalToOpen : 'login' });
 	};
+
+	const handleViewItemInfo = () => {
+		setModalOpen({
+			modalToOpen : 'viewProductInfo',
+			productInfo: product 
+		})
+	};
+
 
 	return (
 		<div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 relative">
@@ -85,10 +93,23 @@ export default function ProductCard({ product, isFavorite, onToggleFavorite }: P
 						₱{product.price}
 					</span>
 
-					<div className='relative'>
+					<div className='relative flex items-center gap-2'>
+						{/* Item Info */}
+						<button 
+							onClick={handleViewItemInfo}
+							className="bg-blue-600 hover:bg-blue-700 hover:scale-105 transition-all duration-200 ease-in-out text-white p-2 rounded-lg flex items-center justify-center group"
+						>
+							<Info size={18} />
+
+							{/* Tooltip for this icon */}
+							<span className="absolute -top-7 left-1/2 -translate-x-1/2 bg-blue-500 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10">
+								View Recipe
+							</span>
+						</button>
+
 						{/* Add to Cart Icon */}
 						<button 
-							onClick={handleAction}
+							onClick={handleAddToCart}
 							className="bg-amber-600 hover:bg-amber-700 hover:scale-105 transition-all duration-200 ease-in-out text-white p-2 rounded-lg flex items-center justify-center group"
 						>
 							<ShoppingCart size={18} />

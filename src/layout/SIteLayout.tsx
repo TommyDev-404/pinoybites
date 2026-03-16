@@ -1,15 +1,18 @@
 import Header from '@/components/user/Header'
 import Footer from '@/components/user/Footer'
 import { Outlet } from 'react-router-dom'
+import { useAuth } from '@/context/user/AuthContext';
 
 export default function SiteLayout() {
+      const { user } = useAuth();
+
       return (
-            <div className="min-h-screen bg-gray-50 overflow-x-hidden">
+            <div className="min-h-screen overflow-x-hidden">
                   <Header />
                         <main>
                               <Outlet/>
                         </main>
-                  <Footer />
+                  {!user && <Footer />}
             </div>
       )
 }

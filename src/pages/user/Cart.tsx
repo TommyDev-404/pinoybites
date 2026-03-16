@@ -45,8 +45,8 @@ export default function CartPage() {
       if (cartItems.length === 0) return <EmptyCart/>;
 
       return (
-            <div className="min-h-screen bg-stone-50">
-                  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div>
+                  <div className="max-w-[80%] mx-auto px-4 sm:px-6 lg:px-8 py-20">
                         {/* Header */}
                         <PageHeader cartItems={cartItems}/>
 
@@ -59,7 +59,7 @@ export default function CartPage() {
                                           whileInView={{ opacity: 1, y: 0 }}
                                           viewport={{ once: true, amount: 0.3 }}
                                           transition={{ duration: 0.30 }}
-                                          className="bg-white rounded-lg border border-gray-200 p-6 h-105 overflow-y-auto"
+                                          className="bg-white rounded-lg border border-gray-200 p-6 max-h-105 overflow-y-auto"
                                     >
                                           {cartItems.map((item, index) => (
                                                 <motion.div

@@ -5,8 +5,6 @@ import { useAuth } from "@/context/user/AuthContext";
 import ProfileTab from "@/components/user/account/ProfileTab";
 import SecurityTab from "@/components/user/account/SecurityTab";
 import AddressesTab from "@/components/user/account/AddressTab";
-import OrdersTab from "@/components/user/account/OrdersTab";
-import NotificationsTab from "@/components/user/account/NotificationsTab";
 import { motion } from "framer-motion";
 
 // --- Types ---
@@ -25,9 +23,7 @@ export default function AccountSettings() {
       const menu: MenuItem[] = [
             { id: "profile", label: "Profile", icon: User },
             { id: "security", label: "Security", icon: Lock },
-            { id: "addresses", label: "Addresses", icon: MapPin },
-            { id: "orders", label: "Orders", icon: Package },
-            { id: "notifications", label: "Notifications", icon: Bell },
+            { id: "addresses", label: "Addresses", icon: MapPin }
       ];
 
       const renderContent = () => {

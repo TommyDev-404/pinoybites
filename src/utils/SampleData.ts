@@ -10,7 +10,6 @@ import putoBumbong from '@/assets/putoBumbong.webp';
 import biko from '@/assets/biko.jpg';
 import cassavaCake from '@/assets/cassavaCake.jpg';
 import lecheFlan from '@/assets/lecheFlan.webp';
-import type { Notification } from '@/types/user';
 import type { Customer, Order, Product } from '@/types/admin';
 
 
@@ -24,6 +23,7 @@ export const categories = [
 	'Dessert'
 ];
 
+/*
 export const allProducts = [
 	{
 		id: 1,
@@ -182,6 +182,297 @@ export const allProducts = [
 	image: lecheFlan
 	}
 	];
+*/
+
+export const allProducts = [
+	{
+	id: 1,
+	name: "Malungay Pandesal",
+	description: "Classic Filipino bread roll with a light crunchy crumb coating",
+	price: 2.00,
+	rating: 4.9,
+	reviews: 320,
+	category: "Bread",
+	badge: "Best Seller",
+	isNew: false,
+	isFavorite: false,
+	image: pandesal,
+	ingredients: [
+	"Flour","Yeast","Sugar","Salt","Milk","Butter","Malunggay leaves","Bread crumbs"
+	],
+	steps: [
+	"Mix ingredients until dough behaves",
+	"Knead like you're mad at your keyboard",
+	"Add malunggay for instant 'health upgrade'",
+	"Roll into small balls",
+	"Bake until the whole house smells amazing"
+	]
+	},
+	
+	{
+	id: 2,
+	name: "Ensaymader",
+	description: "Soft buttery brioche topped with sugar, butter, and grated cheese",
+	price: 5.50,
+	rating: 4.9,
+	reviews: 260,
+	category: "Bread",
+	badge: "Top Rated",
+	isNew: false,
+	isFavorite: false,
+	image: ensaymada,
+	ingredients: [
+	"Flour","Yeast","Butter","Sugar","Eggs","Milk","Cheese"
+	],
+	steps: [
+	"Mix dough and let it rest like it's on vacation",
+	"Roll dough into spiral shapes",
+	"Bake until golden and fluffy",
+	"Spread butter generously",
+	"Add sugar and cheese like calories don't exist"
+	]
+	},
+	
+	{
+	id: 3,
+	name: "Pan de Bisakol",
+	description: "Sweet rolled bread filled with buttery sugary crumbs",
+	price: 3.25,
+	rating: 4.8,
+	reviews: 180,
+	category: "Bread",
+	badge: "Recommended",
+	isNew: false,
+	isFavorite: false,
+	image: spanishBread,
+	ingredients: [
+	"Flour","Yeast","Sugar","Butter","Bread crumbs"
+	],
+	steps: [
+	"Prepare soft dough",
+	"Add sweet crumb filling",
+	"Roll tightly like a burrito",
+	"Place on tray nicely",
+	"Bake until golden and delicious"
+	]
+	},
+	
+	{
+	id: 4,
+	name: "Banana Shanghai",
+	description: "Fried banana spring roll with caramelized sugar and jackfruit",
+	price: 3.50,
+	rating: 4.8,
+	reviews: 210,
+	category: "Fried",
+	badge: "Best Seller",
+	isNew: false,
+	isFavorite: false,
+	image: turon,
+	ingredients: [
+	"Saba banana","Brown sugar","Lumpia wrapper","Jackfruit","Cooking oil"
+	],
+	steps: [
+	"Slice bananas like a pro",
+	"Roll them in sugar goodness",
+	"Wrap with lumpia wrapper tightly",
+	"Fry until golden and crispy",
+	"Try not to eat them immediately"
+	]
+	},
+	
+	{
+	id: 5,
+	name: "Banana Qt",
+	description: "Deep fried saba bananas coated in caramelized brown sugar",
+	price: 2.75,
+	rating: 4.7,
+	reviews: 150,
+	category: "Fried",
+	badge: "Street Favorite",
+	isNew: false,
+	isFavorite: false,
+	image: bananaCue,
+	ingredients: [
+	"Saba bananas","Brown sugar","Cooking oil","Bamboo skewers"
+	],
+	steps: [
+	"Fry bananas in hot oil",
+	"Add brown sugar for caramel magic",
+	"Let sugar coat the bananas",
+	"Stick them on skewers",
+	"Feel like a street food vendor"
+	]
+	},
+	
+	{
+	id: 6,
+	name: "Putotoy",
+	description: "Soft steamed rice cake commonly paired with butter or cheese",
+	price: 2.25,
+	rating: 4.8,
+	reviews: 170,
+	category: "Steamed",
+	badge: "Traditional",
+	isNew: false,
+	isFavorite: false,
+	image: puto,
+	ingredients: [
+	"Rice flour","Sugar","Baking powder","Water","Cheese or butter"
+	],
+	steps: [
+	"Mix batter until smooth",
+	"Pour into tiny molds",
+	"Steam until fluffy",
+	"Add cheese on top",
+	"Enjoy soft cloud-like puto"
+	]
+	},
+	
+	{
+	id: 7,
+	name: "Puto Kutsinta",
+	description: "Chewy brown rice cake topped with freshly grated coconut",
+	price: 2.50,
+	rating: 4.7,
+	reviews: 160,
+	category: "Steamed",
+	badge: "Traditional",
+	isNew: false,
+	isFavorite: false,
+	image: kutsinta,
+	ingredients: [
+	"Rice flour","Brown sugar","Lye water","Annatto","Grated coconut"
+	],
+	steps: [
+	"Mix ingredients until smooth",
+	"Pour into molds carefully",
+	"Steam until chewy magic happens",
+	"Top with coconut snow",
+	"Eat before others see it"
+	]
+	},
+	
+	{
+	id: 8,
+	name: "Bibingka Ni Inday",
+	description: "Rice cake baked in banana leaves topped with salted egg and cheese",
+	price: 4.50,
+	rating: 4.9,
+	reviews: 230,
+	category: "Rice Cakes",
+	badge: "Top Rated",
+	isNew: false,
+	isFavorite: true,
+	image: bibingka,
+	ingredients: [
+	"Rice flour","Coconut milk","Eggs","Sugar","Salted egg","Cheese","Banana leaves"
+	],
+	steps: [
+	"Mix batter like pancake royalty",
+	"Line pan with banana leaves",
+	"Bake until fluffy",
+	"Add salted egg and cheese",
+	"Serve warm and feel festive"
+	]
+	},
+	
+	{
+	id: 9,
+	name: "Puto ni Bongbong Marcos",
+	description: "Purple steamed rice cake topped with coconut, butter, and brown sugar",
+	price: 4.75,
+	rating: 4.9,
+	reviews: 210,
+	category: "Rice Cakes",
+	badge: "Seasonal",
+	isNew: true,
+	isFavorite: false,
+	image: putoBumbong,
+	ingredients: [
+	"Purple rice flour","Butter","Brown sugar","Grated coconut"
+	],
+	steps: [
+	"Steam purple rice mixture",
+	"Push it out like a purple noodle",
+	"Add butter immediately",
+	"Sprinkle coconut and sugar",
+	"Enjoy Christmas vibes anytime"
+	]
+	},
+	
+	{
+	id: 10,
+	name: "Bibiko",
+	description: "Sticky rice desert cooked with coconut milk and topped with caramel latik",
+	price: 3.75,
+	rating: 4.8,
+	reviews: 200,
+	category: "Rice Cakes",
+	badge: "Recommended",
+	isNew: false,
+	isFavorite: false,
+	image: biko,
+	ingredients: [
+	"Sticky rice","Coconut milk","Brown sugar","Latik"
+	],
+	steps: [
+	"Cook sticky rice first",
+	"Add coconut milk and sugar",
+	"Stir until thick and sweet",
+	"Spread in tray",
+	"Top with latik like a dessert boss"
+	]
+	},
+	
+	{
+	id: 11,
+	name: "Balanghoy Cake",
+	description: "Rich balanghoy desert topped with creamy custard layer",
+	price: 4.25,
+	rating: 4.8,
+	reviews: 190,
+	category: "Dessert",
+	badge: "Best Seller",
+	isNew: false,
+	isFavorite: false,
+	image: cassavaCake,
+	ingredients: [
+	"Cassava","Coconut milk","Eggs","Sugar","Condensed milk"
+	],
+	steps: [
+	"Mix cassava batter",
+	"Bake until firm",
+	"Add custard topping",
+	"Bake again for creamy goodness",
+	"Slice and share (or not)"
+	]
+	},
+	
+	{
+	id: 12,
+	name: "Letche Flan",
+	description: "Rich caramel custard desert with smooth creamy texture",
+	price: 4.50,
+	rating: 4.9,
+	reviews: 240,
+	category: "Dessert",
+	badge: "Top Rated",
+	isNew: false,
+	isFavorite: false,
+	image: lecheFlan,
+	ingredients: [
+	"Egg yolks","Condensed milk","Evaporated milk","Sugar"
+	],
+	steps: [
+	"Melt sugar until caramel magic",
+	"Mix eggs and milk gently",
+	"Pour mixture into mold",
+	"Steam until silky smooth",
+	"Flip carefully like a dessert ninja"
+	]
+	}
+];
 
 export const popularProducts = [
 	{
@@ -381,51 +672,6 @@ export const journey = [
 	title: 'Today',
 	description: 'Serving hundreds of happy customers daily with over 50 types of Filipino snacks and kakanin, all crafted with love, care, and tradition.'
 	}
-];
-
-export const sampleNotifications: Notification[] = [
-	{
-	  id: 1,
-	  message: "Your order #PB1023 has been delivered successfully.",
-	  type: "success",
-	  date: "Mar 5, 2026",
-	  link: "/orders/PB1023", // optional: for redirecting to order details
-	},
-	{
-	  id: 2,
-	  message: "Your order #PB1024 is now in transit.",
-	  type: "info",
-	  date: "Mar 6, 2026",
-	  link: "/orders/PB1024",
-	},
-	{
-	  id: 3,
-	  message: "Payment confirmed for order #PB1025.",
-	  type: "success",
-	  date: "Mar 6, 2026",
-	  link: "/orders/PB1025",
-	},
-	{
-	  id: 4,
-	  message: "Your order #PB1026 was cancelled.",
-	  type: "error",
-	  date: "Mar 7, 2026",
-	  link: "/orders/PB1026",
-	},
-	{
-	  id: 5,
-	  message: "New promotion: 10% off on all Filipino snacks!",
-	  type: "info",
-	  date: "Mar 7, 2026",
-	  link: "/promotions",
-	},
-	{
-	  id: 6,
-	  message: "Your order #PB1027 has been delivered successfully.",
-	  type: "success",
-	  date: "Mar 7, 2026",
-	  link: "/orders/PB1027",
-	},
 ];
 
 

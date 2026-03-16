@@ -27,25 +27,15 @@ import {
 } from "lucide-react"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Button } from "@/components/ui/button"
-import type { CartItem as CartItemType } from "@/types/user"
+import type { CartItem as CartItemType, OrderFormData, OrderInfo } from "@/types/user"
 import toast from "react-hot-toast"
 import { capitalizeWords  } from '@/utils/helper';
 import { useNavigate } from "react-router-dom"
 import PlaySound from "@/utils/PlaySound"
 import type { Notification } from "@/types/user"
 import { useUserContext } from "@/context/user/UserContext"
+import { useAuth } from "@/context/user/AuthContext"
 
-
-interface OrderFormData {
-      customerName: string
-      phone: string
-      email: string
-      address: string
-      deliveryDate: string
-      deliveryTime: string
-      paymentMethod: string
-      notes: string
-}
 
 type Props = {
       cartItems: CartItemType[]
@@ -54,7 +44,8 @@ type Props = {
 }
 
 export default function PlaceOrderModal({ cartItems, open, onClose }: Props) {
-      const { clearCart } = useUserContext();
+      const { handlePlaceOrder } = useUserContext();
+      const { user } = useAuth();
       const navigate = useNavigate();
       const [isSubmitting, setIsSubmitting] = useState(false)
       const {
@@ -67,69 +58,26 @@ export default function PlaceOrderModal({ cartItems, open, onClose }: Props) {
       defaultValues: {
             deliveryDate: new Date().toISOString().split("T")[0],
             deliveryTime: "06:00",
-            paymentMethod: "cod"
+            paymentMethod: "cod",
+            email: user?.email,
+            customerName: user?.name
       }
       })
       const watchPaymentMethod = watch("paymentMethod")
 
       // totals
       const subtotal = cartItems.reduce(
-      (sum, item) => sum + item.price * item.quantity!,
-      0
-      )
+            (sum, item) => sum + item.price * item.quantity!,
+            0
+            )
 
       const DELIVERY_FEE = 4.99
       const total = subtotal + DELIVERY_FEE
 
-      const onSubmit = async (data: OrderFormData) => {
-            if (cartItems.length === 0) {
-                  toast.error("Your cart is empty!")
-                  return
-            }
-
-            setIsSubmitting(true)
-
-            await new Promise(r => setTimeout(r, 1500));
-
-            const savedOrders = localStorage.getItem('foodHubOrders');
-            const orders = savedOrders ? JSON.parse(savedOrders) : [];
-            const idNo = orders.reduce((sum: number, item: { id: number }) => sum + item.id, 1)
-            const order = {
-                  id: idNo,
-                  date: data.deliveryDate,
-                  deliveryFee: DELIVERY_FEE,
-                  status: 'Pending',
-                  total: total, // or however you calculate total
-                  items: cartItems // keep the array here
-            };
-
-            orders.push(order);
-            toast.success('Order placed successfully!');
-
-            localStorage.setItem('foodHubOrders', JSON.stringify(orders));
-            clearCart(); // clear the cart after placing order
-            
-            const stored = localStorage.getItem('notifications');
-            const notifications = stored ? JSON.parse(stored) as Notification[] : [];
-
-            const newNotifications: Notification = {
-                  id: idNo,
-                  message: `You order #ORDR-GWAPOKO${idNo} has been successfully placed.`,
-                  date: new Date().toLocaleDateString('en-Us', { month: 'long', day: '2-digit', year: 'numeric'}),
-                  type: 'success'
-            };
-
-            notifications.push(newNotifications);
-
-            // set notifications
-            localStorage.setItem('notifications', JSON.stringify(notifications));
-
-            setIsSubmitting(false);
-            onClose();
-            PlaySound();
-
-            navigate("/order-success");
-      }
+      
+      const onSubmit = (data: OrderFormData) => {
+            handlePlaceOrder(data, cartItems, setIsSubmitting, onClose, navigate);
+      };
 
       return (
             <Dialog open={open} onOpenChange={onClose}>
@@ -191,11 +139,8 @@ export default function PlaceOrderModal({ cartItems, open, onClose }: Props) {
                                           <Label>Full Name *</Label>
                                           <Input
                                                 placeholder="Juan Dela Cruz"
-                                                {...register("customerName", { 
-                                                            required: "Name is required",
-                                                            onChange: (e) => setValue("customerName", capitalizeWords(e.target.value))
-                                                      }
-                                                )}
+                                                {...register("customerName")}
+                                                readOnly={true}
                                           />
                                           {errors.customerName && (
                                                 <p className="text-sm text-red-500">
@@ -225,6 +170,7 @@ export default function PlaceOrderModal({ cartItems, open, onClose }: Props) {
                                                 type="email"
                                                 placeholder="juan@email.com"
                                                 {...register("email")}
+                                                readOnly={true}
                                           />
                                     </div>
 

@@ -36,7 +36,7 @@ export default function TrustIndicator({
 }: TrustIndicatorProps) {
 
       return (
-            <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+            <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
                   {features.map((feature, index) => (
                         <motion.div
                         key={index}

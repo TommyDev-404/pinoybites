@@ -14,6 +14,7 @@ import SiteLayout from "@/layout/SIteLayout"
 import ResetPassword from "@/pages/user/ResetPassword"
 import Login from "@/pages/user/Login"
 import RegisterPage from "@/pages/user/Register"
+import NotificationsPage from "@/pages/user/Notifications"
 
 export default function UserRoutes() {
       return (
@@ -33,6 +34,7 @@ export default function UserRoutes() {
                         <Route path="orders" element={<Orders />} />
                         <Route path="order-success" element={<OrderSuccess />} />
                         <Route path="account" element={<AccountSettings />} />
+                        <Route path="notifications" element={<NotificationsPage />} />
                   </Route>
             </Routes>
       )

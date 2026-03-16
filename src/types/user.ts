@@ -13,14 +13,17 @@ export interface Product {
       category: string;
       isNew: boolean;
       isFavorite: boolean;
-      image: string
+      image: string;
+      ingredients: string[];
+      steps: string[];
 }
 
 export interface Notification {
       id: number;
       message: string;
       type: "success" | "error" | "info";
-      date: string;
+      read: boolean;
+      orders: OrderInfo;
 }
 
 export interface CartItem {
@@ -33,21 +36,13 @@ export interface CartItem {
       category: string;
 }
 
-type OrderItem = {
-      id: number;
-      name: string;
-      price: number;
-      quantity: number;
-      image: string;
-};
-
 export interface OrderInfo {
       id: number;
       date: string;
       deliveryFee: number;
       status: "Pending" | "Completed" | "Cancelled";
       total: number;
-      items: OrderItem[]
+      items: CartItem[]
 }
 
 export interface Cart {
@@ -56,4 +51,17 @@ export interface Cart {
       deliveryFee: number;
       total: number;
 }
+
+
+export interface OrderFormData {
+      customerName: string
+      phone: string
+      email: string
+      address: string
+      deliveryDate: string
+      deliveryTime: string
+      paymentMethod: string
+      notes: string
+}
+
 

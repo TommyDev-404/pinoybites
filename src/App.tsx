@@ -10,6 +10,9 @@ const UserRoutes = lazy(() => import('@/routes/UserRoutes'))
 const AdminRoutes = lazy(() => import('@/routes/AdminRoutes'))
 
 export default function App() {
+	localStorage.removeItem('notifications');
+	localStorage.removeItem('foodHubCart');
+	localStorage.removeItem('foodHubOrders');
 	return (
 		<Suspense fallback={<Loading />}>
 			<ScrollToTop />

@@ -11,17 +11,18 @@ export default function PageHeader({ cartItems } : PageHeaderProps){
 
       return(
             <div className="mb-8">
-                  <div className="mb-6">
-                        <button
-                              onClick={() => { navigate('/products') }}
-                              className="flex items-center gap-2 text-sm font-semibold text-amber-600 hover:text-amber-700 hover:underline transition group cursor-pointer"
-                        >
-                              <ArrowLeftCircle className="w-5 transition-transform group-hover:-translate-x-1" />
-                              Continue Shopping
-                        </button>
-                  </div>
-                  <h1 className="text-3xl md:text-4xl font-bold">Shopping Cart</h1>
-                  <p className="text-gray-600 mt-2">{cartItems.length} items in your cart</p>
-            </div>
+      <h1 className="text-3xl md:text-4xl font-bold">Shopping Cart</h1>
+
+      {/* Description */}
+      <p className="text-gray-600 mt-2">
+            Review the snacks you've added to your cart before checkout. 
+            You can update quantities, remove items, or proceed to place your order.
+      </p>
+
+      {/* Cart Count */}
+      <p className="text-gray-500 mt-1">
+            {cartItems.length} item{cartItems.length !== 1 ? "s" : ""} in your cart
+      </p>
+</div>
       );
 }

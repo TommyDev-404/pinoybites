@@ -59,7 +59,7 @@ export default function OrderList({ order, index, handleConfirmCancelOrder } : O
                                     <div>
                                           <p className="flex items-center gap-2 text-stone-400 text-xs">
                                                 Subtotal: 
-                                                <span className="font-semibold text-base text-stone-800">₱{(item.quantity * item.price).toFixed(2)}</span>
+                                                <span className="font-semibold text-base text-stone-800">₱{(item.quantity! * item.price).toFixed(2)}</span>
                                           </p>
 
                                           <p className="flex items-center gap-2 text-stone-400 text-xs">

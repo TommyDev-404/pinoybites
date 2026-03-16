@@ -73,8 +73,8 @@ export default function Products() {
       };
 
       return (
-            <section className="py-18 md:py-20 bg-gray-50 min-h-screen">
-                  <div className="max-w-[85%] mx-auto px-4 md:px-8">
+            <section className="py-20">
+            <div className="max-w-[80%] mx-auto px-4 md:px-8">
                         {/* Page Header */}
                         <PageHeader user={user ? true : false}/>
 

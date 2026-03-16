@@ -6,13 +6,13 @@ import LoginForm from "@/components/user/authentication/LoginModal";
 import AddToCartModal from "@/components/user/products/AddToCartModal";
 import PlaceOrderModal from '@/components/user/cart/PlaceOrder';
 import OverlaySpinner from "@/components/shared/OverlaySpinner";
-import NotificationsModal from "@/components/user/NotificatonModal";
 import ConfirmationModal from "@/components/shared/ConfirmationModal";
+import ProductInfoModal from "@/components/user/products/ProductInfoModal";
+import NotifOrderDetailsModal from "@/components/user/notification/NotifOrderDetails";
 
 export default function ModalDisplayer() {
       const { modalOpen, setModalOpen } = useModal();
       
-      console.log(modalOpen.modalToOpen);
       const modals = {
             login: (
                   <LoginForm 
@@ -40,12 +40,6 @@ export default function ModalDisplayer() {
             logoutLoading: (
                   <OverlaySpinner message={'Logging out...'}/>
             ),
-            notifications: (
-                  <NotificationsModal 
-                        open={modalOpen.modalToOpen === "notifications"} 
-                        onClose={() => setModalOpen({ modalToOpen : null })}
-                  />
-            ),
             logoutConfirmation: (
                   <ConfirmationModal 
                         message={modalOpen.message!} 
@@ -64,6 +58,20 @@ export default function ModalDisplayer() {
                         open={modalOpen.modalToOpen === "removeConfirmation"} 
                         onClose={() => setModalOpen({ modalToOpen : null })}
                         execFunc={modalOpen.function}
+                  />
+            ),
+            viewProductInfo: (
+                  <ProductInfoModal
+                        product={modalOpen?.productInfo!}
+                        open={modalOpen.modalToOpen === "viewProductInfo"} 
+                        onClose={() => setModalOpen({ modalToOpen : null })}
+                  />
+            ), 
+            notifInfo: (
+                  <NotifOrderDetailsModal
+                        order={modalOpen?.orderInfo!}
+                        open={modalOpen.modalToOpen === "notifInfo"} 
+                        onClose={() => setModalOpen({ modalToOpen : null })}
                   />
             )
       };

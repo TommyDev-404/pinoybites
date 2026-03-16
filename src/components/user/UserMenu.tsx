@@ -22,11 +22,6 @@ export default function UserMenu() {
 
       const toggleDarkMode = () => setDarkMode(!darkMode);
 
-      const stored = localStorage.getItem('notifications');
-      const notifications: Notification[] = stored ? JSON.parse(stored) : [];
-
-      const notifCount = notifications.length;
-
       const avatarName = user?.name!
             .split(" ")
             .slice(0, 2)
@@ -78,23 +73,7 @@ export default function UserMenu() {
 
                         {/* Preferences Section */}
                         <p className="px-4 py-1 text-xs text-stone-400">Preferences</p>
-                        
-                        <DropdownMenuItem onClick={() => setModalOpen({ modalToOpen: 'notifications' })} className="cursor-pointer flex items-center justify-between py-3">
-                              <div className="flex items-center justify-between w-full">
-                                    <div className="flex items-center">
-                                          <Bell className="w-4 h-4 mr-4" />
-                                          Notifications
-                                    </div>
-
-                                    {/* Perfect circle badge */}
-                                    {notifCount > 0 && (
-                                          <span className="ml-2 bg-red-500 text-white text-xs font-semibold w-5 h-5 flex items-center justify-center rounded-full">
-                                                {notifCount}
-                                          </span>
-                                    )}
-                              </div>
-                        </DropdownMenuItem>
-
+            
                         <DropdownMenuItem className='py-3'>
                               <div onClick={(e) => e.stopPropagation()} className='w-full cursor-pointer flex items-center justify-between'>
                                     <div  className="flex items-center">
