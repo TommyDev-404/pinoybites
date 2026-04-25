@@ -19,7 +19,15 @@ export default function Header() {
 	const cartCount = cartData?.cart_items.length ?? 0;
 
 	const { data: orderData } = useOrders(user?.user_id!, 'All');
+<<<<<<< HEAD
 	const orderCount = orderData?.orders.filter((order) => !["Cancelled", "Delivered"].includes(order.status)).length ?? 0;
+=======
+<<<<<<< HEAD
+	const orderCount = orderData?.orders.length ?? 0;
+=======
+	const orderCount = orderData?.orders.filter((order) => !["Cancelled", "Delivered"].includes(order.status)).length ?? 0;
+>>>>>>> 0762604 (Fix bug and update Readme)
+>>>>>>> df6173b (Fix bug and update Readme)
 	
 	const { data: notifData } = useNotifications(user?.user_id!);
 	const notifCount = notifData?.notifications.filter((notif) => !notif.is_read).length ?? 0;
