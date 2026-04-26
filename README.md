@@ -21,28 +21,6 @@ For backend dependencies:
   pnpm install
 ```
 
-<<<<<<< HEAD
-- After installing, configure to run:
-=======
-<<<<<<< HEAD
-- After installing, run the app:
->>>>>>> df6173b (Fix bug and update Readme)
-
-Create first a database in PostrgeSQL or MySQL, queries in the db-scripts folder.
-
-Then in backend, run this to generate orm and use the database:
-```bash
-  npx prisma db pull
-  npx prisma generate
-```
-
-AFter that, run the app in both backend and frontend shell or bash:
-```bash
-  pnpm dev
-```
-<<<<<<< HEAD
-=======
-=======
 - After installing, configure to run:
 
 Create first a database in PostrgeSQL or MySQL, queries in the db-scripts folder.
@@ -57,5 +35,18 @@ AFter that, run the app in both backend and frontend shell or bash:
 ```bash
   pnpm dev
 ```
->>>>>>> 0762604 (Fix bug and update Readme)
->>>>>>> df6173b (Fix bug and update Readme)
+
+- After installing, configure to run:
+
+Create first a database in PostrgeSQL or MySQL, queries in the db-scripts folder.
+
+Then in backend, run this to generate orm and use the database:
+```bash
+  npx prisma db pull
+  npx prisma generate
+```
+
+After that, run the app in both backend and frontend shell or bash:
+```bash
+  pnpm dev
+```
